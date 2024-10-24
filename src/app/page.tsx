@@ -1,6 +1,5 @@
 import MaxWidthWrapper from "@/components/Max-Width-Wrapper";
 import Image from "next/image";
-
 const Home = () => {
   return (
     <section className="flex flex-col justify-start items-center h-[100vh] w-full ">

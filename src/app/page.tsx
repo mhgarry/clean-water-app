@@ -50,7 +50,9 @@ const Home = () => {
                   &apos;NY&apos;), and City below to check the status of your
                   drinking water.
                 </p>
-                <LocationInput />
+                <div className="w-full py-4">
+                  <LocationInput />
+                </div>
               </div>
             </div>
           </div>

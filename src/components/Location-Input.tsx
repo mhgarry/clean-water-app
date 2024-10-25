@@ -63,7 +63,7 @@ export default function LocationInput() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="grid grid-cols-5 gap-4"
+        className="grid grid-cols-1 md:grid-cols-5 gap-4"
       >
         {/* Zip Code Field */}
         <div className="col-span-1">

@@ -1,16 +1,15 @@
 import MaxWidthWrapper from "@/components/Max-Width-Wrapper";
 import MapkeyToggle from "@/components/Mapkey-Toggle";
 import Image from "next/image";
-import InputForm from "@/components/Location-Input";
 import LocationInput from "@/components/Location-Input";
 const Home = () => {
   return (
     <section className="flex flex-col justify-start items-start h-[100vh] w-full ">
       <MaxWidthWrapper>
-        <div className="grid grid-cols-1 md:grid-cols-4 xl:gap-20 h-full lg:gap-12  md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 xl:gap-20 h-full lg:gap-12  md:gap-8 lg:grid-cols-4 px-4 ">
           {/* Parent container for MapToggle */}
-          <div className="w-full h-full md:col-span-4 col-span-1 rounded-md space-y-12">
-            <h2 className="text-primary font-bold text-3xl">
+          <div className="w-full h-full md:col-span-4 col-span-2 rounded-md space-y-12">
+            <h2 className="text-primary font-bold text-xl md:display-none lg:text-3xl md:text-2xl ">
               Water Safety Map
             </h2>
             {/* Align MapToggle to the start */}
@@ -26,14 +25,14 @@ const Home = () => {
                 className="object-cover rounded-md border-solid border-border shadow-xl"
               />
             </div>
-            <div className="grid grid-cols-4">
+            <div className="grid grid-cols-2 sm:grid-cols-4">
               {" "}
               <div className="col-span-2 col-start-1">
                 <p className="text-xl font-bold text-primary">Map Key</p>
                 <MapkeyToggle />
               </div>
-              <div className="col-span-2 col-start-3">
-                <p className="text-xl font-bold text-primary">
+              <div className="col-span-2 col-start-1 md:col-start-3 ">
+                <p className="text-xl font-bold text-primary row-start-1 md:row-start-2">
                   Clean drinking water is a human right not a privilege.
                 </p>
                 <p className="text-md text-foreground">

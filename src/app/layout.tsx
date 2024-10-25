@@ -107,7 +107,7 @@ export default function RootLayout({
         >
           <TopNav pages={topNavPages} />
 
-          <div className="flex flex-row h-full w-full justify-center align-center items-center py-14">
+          <div className="flex flex-row h-full w-full justify-center align-center items-center py-14 lg:px-4">
             <MaxWidthWrapper>
               <div className="grid grid-cols-1 md:grid-cols-4 h-full w-full">
                 <aside className="col-span-1 max-w-[299px]">

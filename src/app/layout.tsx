@@ -11,6 +11,7 @@ import {
   Archive,
   Book,
   List,
+  Map,
 } from "lucide-react";
 import MaxWidthWrapper from "@/components/Max-Width-Wrapper";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -32,6 +33,11 @@ const topNavPages = [
     title: "About",
     path: "/about",
     icon: <InfoIcon size={24} />,
+  },
+  {
+    title: "Map",
+    path: "/map",
+    icon: <Map size={24} />,
   },
   {
     title: "FAQ",

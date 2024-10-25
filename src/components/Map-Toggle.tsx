@@ -1,135 +1,90 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Button } from "./ui/button";
-import { useOutsideClick } from "@/hooks/use-click-outside";
+import React, { useState } from "react";
+import { cn } from "@/lib/utils";
+import { Button } from "./ui/button"; // Adjust the import path as necessary
 
 const MapToggle = () => {
-  const [isWaterSafe, setIsWaterSafe] = useState<boolean | null>(null);
-  const [isWaterCaution, setIsWaterCaution] = useState<boolean | null>(null);
-  const [isWaterDanger, setIsWaterDanger] = useState<boolean | null>(null);
-
-  // Close popup when pressing "Escape"
-  useEffect(() => {
-    const handleEsc = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        clearStatus();
-      }
-    };
-
-    document.addEventListener("keydown", handleEsc);
-    return () => {
-      document.removeEventListener("keydown", handleEsc);
-    };
-  }, []);
+  const [activeStatus, setActiveStatus] = useState<string | null>(null);
 
   const setWaterStatus = (status: string) => {
-    setIsWaterSafe(null); // Reset all values before setting the selected status
-    setIsWaterCaution(null);
-    setIsWaterDanger(null);
-
-    if (status === "Safe") {
-      setIsWaterSafe(true);
-    } else if (status === "Caution") {
-      setIsWaterCaution(true);
-    } else if (status === "Danger") {
-      setIsWaterDanger(true);
-    }
-
-    console.log(status);
+    setActiveStatus(status);
   };
-
-  const clearStatus = () => {
-    setIsWaterSafe(null);
-    setIsWaterCaution(null);
-    setIsWaterDanger(null);
-  };
-
-  const safeRef = useOutsideClick(() => clearStatus());
-  const cautionRef = useOutsideClick(() => clearStatus());
-  const dangerRef = useOutsideClick(() => clearStatus());
 
   return (
     <div>
-      <div className="flex flex-row justify-center items-start gap-4 p-2 bg-secondary rounded-lg">
+      {/* Button Group Container */}
+      <div className="relative flex flex-row justify-center items-start gap-4 p-2 bg-secondary w-fit max-w-[300px] rounded-lg my-8">
         <Button
           onClick={() => setWaterStatus("Safe")}
-          aria-pressed={isWaterSafe ? "true" : "false"}
+          aria-pressed={activeStatus === "Safe"}
           aria-label="Set water status to safe"
+          className={cn(
+            "button",
+            activeStatus === "Safe" ? "bg-green-500 text-white" : "bg-gray-200"
+          )}
         >
           Safe
         </Button>
         <Button
           onClick={() => setWaterStatus("Caution")}
-          aria-pressed={isWaterCaution ? "true" : "false"}
+          aria-pressed={activeStatus === "Caution"}
           aria-label="Set water status to caution"
+          className={cn(
+            "button",
+            activeStatus === "Caution"
+              ? "bg-yellow-500 text-white"
+              : "bg-gray-200"
+          )}
         >
           Caution
         </Button>
         <Button
           onClick={() => setWaterStatus("Danger")}
-          aria-pressed={isWaterDanger ? "true" : "false"}
+          aria-pressed={activeStatus === "Danger"}
           aria-label="Set water status to danger"
+          className={cn(
+            "button",
+            activeStatus === "Danger" ? "bg-red-500 text-white" : "bg-gray-200"
+          )}
         >
           Danger
         </Button>
       </div>
-      <div>
-        {isWaterSafe && (
-          <div
-            ref={safeRef}
-            className="relative bg-green-500 mt-2 text-white p-2 rounded-md opacity-80"
-            role="dialog"
-            aria-live="polite"
-            aria-label="Water status safe"
-          >
-            Safe
-            <button
-              onClick={clearStatus}
-              className="absolute top-0 right-0 text-white p-1"
-              aria-label="Close safe status"
-            >
-              ✕
-            </button>
-          </div>
-        )}
-        {isWaterCaution && (
-          <div
-            ref={cautionRef}
-            className="relative bg-yellow-500 mt-2 text-white p-2 rounded-md opacity-80"
-            role="dialog"
-            aria-live="polite"
-            aria-label="Water status caution"
-          >
-            Caution
-            <button
-              onClick={clearStatus}
-              className="absolute top-0 right-0 text-white p-1"
-              aria-label="Close caution status"
-            >
-              ✕
-            </button>
-          </div>
-        )}
-        {isWaterDanger && (
-          <div
-            ref={dangerRef}
-            className="relative bg-red-500 mt-2 text-white p-2 rounded-md opacity-80"
-            role="dialog"
-            aria-live="polite"
-            aria-label="Water status danger"
-          >
-            Danger
-            <button
-              onClick={clearStatus}
-              className="absolute top-0 right-0 text-white p-1"
-              aria-label="Close danger status"
-            >
-              ✕
-            </button>
-          </div>
-        )}
-      </div>
+
+      <style jsx>{`
+        @keyframes gleam {
+          0% {
+            background-position: 200%;
+          }
+          100% {
+            background-position: -200%;
+          }
+        }
+
+        .gleam {
+          background: linear-gradient(
+            120deg,
+            rgba(255, 255, 255, 0.3),
+            rgba(255, 255, 255, 0.1),
+            rgba(255, 255, 255, 0.3)
+          );
+          background-size: 200% 100%;
+          animation: gleam 1.5s ease-in-out infinite;
+        }
+
+        .button {
+          position: relative;
+          padding: 10px 20px;
+          border-radius: 8px;
+          transition: background-color 0.4s, color 0.4s;
+          cursor: pointer;
+        }
+
+        .button:hover {
+          filter: brightness(1.1); /* Slight brighten on hover */
+        }
+      `}</style>
     </div>
   );
 };

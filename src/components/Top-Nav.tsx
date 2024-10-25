@@ -14,18 +14,20 @@ const TopNav: React.FC<TopNavProps> = ({ pages }) => {
     <div className="w-full bg-primary flex justify-center  px-12 md:px-4">
       {/* MaxWidthWrapper content centered using mx-auto */}
       <MaxWidthWrapper>
-        <nav className="flex flex-row gap-4 justify-between items-center align-center w-full py-2">
-          <div className="w-fit flex flex-row  rounded-md bg-background p-[0.25rem]">
-            <h2 className="ml-2 font-bold text-lg md:text-xl lg:text-2xl text-primary  rounded-md">
-              Water Quality Reporter
-            </h2>
-            <Image
-              src="/water-droplet-logo.png"
-              alt="Logo"
-              width={32}
-              height={32}
-              className="object-cover rounded-md"
-            />
+        <nav className="flex flex-row gap-4 justify-between items-center align-center w-full py-2 ">
+          <div className="w-fit flex flex-row  rounded-md bg-background p-[0.25rem] hover:bg-accent cursor-pointer">
+            <Link href="/" className="w-fit flex flex-row">
+              <h2 className="ml-2 font-bold text-lg md:text-xl lg:text-2xl text-primary  rounded-md">
+                Water Quality Reporter
+              </h2>
+              <Image
+                src="/water-droplet-logo.png"
+                alt="Logo"
+                width={32}
+                height={32}
+                className="object-cover rounded-md"
+              />
+            </Link>
           </div>
           <div className="w-fit flex flex-row justify-between gap-4">
             {pages.map((page) => (

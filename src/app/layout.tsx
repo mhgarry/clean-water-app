@@ -107,7 +107,7 @@ export default function RootLayout({
         >
           <TopNav pages={topNavPages} />
 
-          <div className="flex flex-row h-full w-full justify-center align-center items-center py-4  md:py-8 lg:py-14 px-16 md:px-4">
+          <div className="flex flex-row h-full w-full justify-center align-center items-center py-4  md:py-8 lg:py-14 px-12 md:px-4">
             <MaxWidthWrapper>
               <div className="grid grid-cols-1 md:grid-cols-4 h-full w-full ">
                 {/* SideNav - Hidden on smaller screens */}

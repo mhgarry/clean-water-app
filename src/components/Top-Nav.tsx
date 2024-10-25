@@ -11,7 +11,7 @@ interface TopNavProps {
 
 const TopNav: React.FC<TopNavProps> = ({ pages }) => {
   return (
-    <div className="w-full bg-primary flex justify-center">
+    <div className="w-full bg-primary flex justify-center  px-12 md:px-4">
       {/* MaxWidthWrapper content centered using mx-auto */}
       <MaxWidthWrapper>
         <nav className="flex flex-row gap-4 justify-between items-center align-center w-full py-2">

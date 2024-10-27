@@ -15,7 +15,9 @@ datasource db {
 
 model WaterData {
   id        String   @id @default(uuid()) @map("_id") @db.Uuid
-  location  String
+  city      String
+  state     String
+  zip       String
   quality   Int
   latitude  Float
   longitude Float

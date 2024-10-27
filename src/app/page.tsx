@@ -32,7 +32,7 @@ const Home = () => {
             </div>
             <div className="col-span-2 col-start-1 md:col-start-3 ">
               <p className="text-xl font-bold text-primary row-start-1 md:row-start-2">
-                Clean drinking water is a human right not a privilege.
+                Clean drinking water is a human right.
               </p>
               <p className="text-md text-foreground">
                 This map aims to provide a quick and accessible way to check the

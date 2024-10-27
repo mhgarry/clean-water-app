@@ -44,8 +44,8 @@ const MapkeyToggle = () => {
           className={cn(
             "button",
             activeStatus === "Safe"
-              ? "bg-green-500 text-white"
-              : "bg-card text-white hover:bg-green-500/80"
+              ? "bg-green-500 text-white font-bold"
+              : "bg-card text-white hover:bg-green-500/80 "
           )}
         >
           Safe
@@ -58,8 +58,8 @@ const MapkeyToggle = () => {
           className={cn(
             "button",
             activeStatus === "Caution"
-              ? "bg-yellow-500 text-white"
-              : "bg-card text-white hover:bg-yellow-500/80"
+              ? "bg-yellow-500 text-white font-bold"
+              : "bg-card text-white hover:bg-yellow-500/80 "
           )}
         >
           Caution
@@ -72,8 +72,8 @@ const MapkeyToggle = () => {
           className={cn(
             "button",
             activeStatus === "Danger"
-              ? "bg-red-500 text-white"
-              : "bg-card text-white hover:bg-red-500/80",
+              ? "bg-red-500 text-white font-bold"
+              : "bg-card text-white hover:bg-red-500/80 ",
             "gleam" // Add the gleam class to the button
           )}
         >

@@ -24,9 +24,10 @@ const Home = () => {
               className="object-cover rounded-md border-solid border-border shadow-xl"
             />
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-5 md:grid-rows-2 md:gap-4 gap-8">
-            <div className="md:col-span-3  col-span-6  order-1 md:order-0 md:col-start-1 md:row-start-1">
-              <p className="text-xl font-bold text-primary ">
+          <div className="grid grid-cols-2 md:grid-cols-5 space-y-8 md:space-y-4">
+            {" "}
+            <div className="md:col-span-3  col-span-1 ">
+              <p className="text-xl font-bold text-primary row-start-1 md:row-start-2">
                 Clean drinking water is a human right.
               </p>
               <p className="text-md text-foreground">
@@ -34,16 +35,16 @@ const Home = () => {
                 status of drinking water data by area.
               </p>
             </div>
-            <div className="col-span-6 md:col-span-2 col-start-1 md:col-start-4 ">
-              <p className="text-lg font-bold text-primary mb-2  ">Map Key</p>
+            <div className="col-span-2 col-start-1 md:col-start-4">
+              <p className="text-sm font-bold text-primary mb-1">Map Key</p>
               <MapkeyToggle />
             </div>
-            <div className="col-span-5 order-3">
+            <div className="col-span-5">
               <p className="text-xl font-bold text-primary">
                 Check your water status now
               </p>
 
-              <div className="w-full">
+              <div className="w-full py-4">
                 <LocationInput />
               </div>
             </div>

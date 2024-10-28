@@ -9,7 +9,7 @@ interface SideNavProps {
 const SideNav: React.FC<SideNavProps> = ({ categories = [] }) => {
   return (
     <aside>
-      <div className="bg-card text-card-foreground flex flex-col p-4 space-y-4 border rounded-md shadow-xl h-[90vh] ">
+      <div className="bg-gradient-to-br border rounded-md shadow-xl from-accent via-card to-background text-card-foreground flex flex-col p-4 space-y-4  border- h-[100vh]">
         {categories.map((category: NavPage) => (
           <div key={category.title}>
             <h2 className="text-md font-bold text-foreground mb-2 ml-4">

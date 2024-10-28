@@ -52,7 +52,7 @@ export default function LocationInput() {
     toast({
       title: "You submitted the following values:",
       description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+        <pre className="mt-2 mb-2 w-[340px] rounded-md bg-input p-4">
           <code className="text-primary">{JSON.stringify(data, null, 2)}</code>
         </pre>
       ),
@@ -63,7 +63,7 @@ export default function LocationInput() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="grid grid-cols-1 md:grid-cols-5 gap-4"
+        className="grid grid-cols-1 md:grid-cols-5 gap-4 "
       >
         {/* Zip Code Field */}
         <div className="col-span-1">
@@ -128,11 +128,10 @@ export default function LocationInput() {
             Check Your Water Quality
           </Button>
         </div>
-        <FormDescription className="col-span-5">
-          Please enter your zip code or both a city and state to check the
-          status of drinking water data.
-        </FormDescription>
       </form>
+      <FormDescription className="mt-2">
+        Enter your zip code, or city and state to check your water quality.
+      </FormDescription>
     </Form>
   );
 }

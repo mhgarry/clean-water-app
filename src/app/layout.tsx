@@ -10,8 +10,10 @@ import {
   Clock,
   Archive,
   Book,
+  Pen,
   List,
   Map,
+  Newspaper,
 } from "lucide-react";
 import MaxWidthWrapper from "@/components/Max-Width-Wrapper";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -48,21 +50,22 @@ const topNavPages = [
 
 const sideNavPages = [
   {
-    title: "Water Alerts & Advisories",
+    title: "Water Advisories",
     pages: [
       {
         title: "Critical Water Advisories",
-        path: "/water-alerts",
+
+        path: "/water-advisories",
         icon: <MessageCircleWarning size={24} />,
       },
       {
         title: "Latest Water Alerts",
-        path: "/water-alerts/latest",
+        path: "/water-advisories/latest",
         icon: <Clock size={24} />,
       },
       {
         title: "Water Alert Archive",
-        path: "/water-alerts/archive",
+        path: "/water-advisories/archive",
         icon: <Archive size={24} />,
       },
     ],
@@ -71,13 +74,18 @@ const sideNavPages = [
     title: "Library",
     pages: [
       {
-        title: "Library Page 1",
-        path: "/library/page-1",
-        icon: <Book size={24} />,
+        title: "Journals & Reports",
+        path: "/library/journals-reports",
+        icon: <Pen size={24} />,
       },
       {
-        title: "Library Page 2",
-        path: "/library/page-2",
+        title: "Articles",
+        path: "/library/articles",
+        icon: <Newspaper size={24} />,
+      },
+      {
+        title: "Water Quality Reports",
+        path: "/library/water-quality-reports",
         icon: <Book size={24} />,
       },
     ],

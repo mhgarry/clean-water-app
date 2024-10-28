@@ -2,6 +2,7 @@ import MaxWidthWrapper from "@/components/Max-Width-Wrapper";
 import MapkeyToggle from "@/components/Mapkey-Toggle";
 import Image from "next/image";
 import LocationInput from "@/components/Location-Input";
+
 const Home = () => {
   return (
     <section className="flex flex-col justify-start items-start h-[100vh] w-full">

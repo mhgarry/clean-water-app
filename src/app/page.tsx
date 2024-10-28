@@ -8,7 +8,7 @@ const Home = () => {
     <section className="flex flex-col justify-start items-start h-[100vh] w-full">
       <MaxWidthWrapper>
         {/* Parent container for MapToggle */}
-        <div className="w-full h-full md:col-span-4 col-span-2 rounded-md space-y-4 md:space-y-4 lg:space-y-8 grid p-4 lg:p-8">
+        <div className="w-full h-full md:col-span-4 col-span-2 rounded-md space-y-4 md:space-y-4 lg:space-y-8 grid p-4">
           <h2 className="text-primary font-bold text-xl md:display-none lg:text-3xl md:text-2xl ">
             Water Quality Map
           </h2>

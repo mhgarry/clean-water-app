@@ -128,6 +128,10 @@ export default function LocationInput() {
             Check Your Water Quality
           </Button>
         </div>
+        <FormDescription className="col-span-5">
+          Please enter your zip code or both a city and state to check the
+          status of drinking water data.
+        </FormDescription>
       </form>
     </Form>
   );

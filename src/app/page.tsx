@@ -7,9 +7,9 @@ const Home = () => {
     <section className="flex flex-col justify-start items-start h-[100vh] w-full">
       <MaxWidthWrapper>
         {/* Parent container for MapToggle */}
-        <div className="w-full h-full md:col-span-4 col-span-2 rounded-md space-y-4 md:space-y-8 lg:space-y-12 grid p-4 lg:p-8">
+        <div className="w-full h-full md:col-span-4 col-span-2 rounded-md space-y-4 md:space-y-4 lg:space-y-8 grid p-4 lg:p-8">
           <h2 className="text-primary font-bold text-xl md:display-none lg:text-3xl md:text-2xl ">
-            Water Safety Map
+            Water Quality Map
           </h2>
           {/* Align MapToggle to the start */}
 
@@ -24,13 +24,9 @@ const Home = () => {
               className="object-cover rounded-md border-solid border-border shadow-xl"
             />
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-4">
+          <div className="grid grid-cols-2 md:grid-cols-5 space-y-8 md:space-y-0">
             {" "}
-            <div className="col-span-2 col-start-1">
-              <p className="text-xl font-bold text-primary">Map Key</p>
-              <MapkeyToggle />
-            </div>
-            <div className="col-span-2 col-start-1 md:col-start-3 ">
+            <div className="md:col-span-3  col-span-1 ">
               <p className="text-xl font-bold text-primary row-start-1 md:row-start-2">
                 Clean drinking water is a human right.
               </p>
@@ -39,14 +35,15 @@ const Home = () => {
                 status of drinking water data by area.
               </p>
             </div>
-            <div className="col-span-3">
+            <div className="col-span-2 col-start-1 md:col-start-4">
+              <p className="text-md font-bold text-primary mb-4">Map Key</p>
+              <MapkeyToggle />
+            </div>
+            <div className="col-span-6 mt-2">
               <p className="text-xl font-bold text-primary">
                 Check your water status now
               </p>
-              <p className="text-md text-foreground">
-                Enter your zip code, state (short 2 digit i.e. &apos;NY&apos;),
-                and City below to check the status of your drinking water.
-              </p>
+
               <div className="w-full py-4">
                 <LocationInput />
               </div>

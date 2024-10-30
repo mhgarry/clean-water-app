@@ -1,4 +1,7 @@
+"use client";
+
 import React from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import type { SideNav, NavPage } from "@/schemas/navSchemas"; // Import the inferred type
 
@@ -9,7 +12,7 @@ interface SideNavProps {
 const SideNav: React.FC<SideNavProps> = ({ categories = [] }) => {
   return (
     <aside>
-      <div className="bg-gradient-to-br border rounded-md shadow-xl from-accent via-card to-background text-card-foreground flex flex-col p-4 space-y-4  border- h-[100vh]">
+      <div className="bg-gradient-to-tr from-accent via-card to-background text-card-foreground  flex-col p-4 space-y-4 min-h-screen border  shadow h-screen sticky rounded-md hidden md:flex">
         {categories.map((category: NavPage) => (
           <div key={category.title}>
             <h2 className="text-md font-bold text-foreground mb-2 ml-4">
@@ -29,8 +32,9 @@ const SideNav: React.FC<SideNavProps> = ({ categories = [] }) => {
                     active:bg-foreground active:text-background active:font-bold
                     pointer-cursor focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
                   >
-                    {page.icon}
-                    {page.title}
+                    <div className=""> {page.icon}</div>
+
+                    <div className="hidden flex-col md:flex"> {page.title}</div>
                   </Link>
                 </li>
               ))}

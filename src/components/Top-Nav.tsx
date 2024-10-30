@@ -1,52 +1,97 @@
+"use client";
 import React from "react";
-import Link from "next/link";
-import Image from "next/image";
 import MaxWidthWrapper from "./Max-Width-Wrapper";
-import { NavPage } from "../schemas/navSchemas";
-import ModeToggle from "@/components/Mode-Toggle";
-
+import Image from "next/image";
+import { NavPage, SubPage } from "@/schemas/navSchemas";
+import Link from "next/link";
+import ModeToggle from "./Mode-Toggle";
+import { HomeIcon, Info, Map, ListCheckIcon, Server } from "lucide-react";
+import { cn } from "@/lib/utils";
+import NavMenu from "./Nav-Menu";
 interface TopNavProps {
   pages: NavPage[];
+  subPages?: SubPage[];
 }
 
-const TopNav: React.FC<TopNavProps> = ({ pages }) => {
+interface SubNavProps {
+  pages: NavPage[];
+  subPages: SubPage[];
+}
+
+const TopNavPages = [
+  {
+    title: "Home",
+    href: "/",
+    icon: <HomeIcon />,
+  },
+  {
+    title: "About",
+    href: "/about",
+    icon: <Info />,
+  },
+  {
+    title: "Map",
+    href: "/map",
+    icon: <Map size={24} />,
+  },
+  {
+    title: "FAQ",
+    href: "/faq",
+    icon: <ListCheckIcon size={24} />,
+    subPages: [
+      {
+        title: "Server",
+        href: "/faq/server",
+        icon: <Server />,
+      },
+    ],
+  },
+];
+
+const subPages: SubPage[] = [
+  { title: "Service 1", href: "/service1", icon: <HomeIcon /> },
+  { title: "Service 2", href: "/service2", icon: <Info /> },
+  { title: "Service 3", href: "/service3", icon: <Map size={24} /> },
+  { title: "Service 4", href: "/service4", icon: <ListCheckIcon size={24} /> },
+];
+const TopNav: React.FC<TopNavProps> = () => {
   return (
-    <div className="w-full bg-primary flex justify-center  px-12 md:px-4">
-      {/* MaxWidthWrapper content centered using mx-auto */}
+    <header className="h-14 max-h-14 px-4 bg-background/60 flex flex-col items-center justify-center sticky top-0 border-b border-border/40 w-full border">
       <MaxWidthWrapper>
-        <nav className="flex flex-row gap-4 justify-between items-center align-center w-full py-2 ">
-          <div className="w-fit flex flex-row  rounded-md bg-background p-[0.25rem] hover:bg-accent cursor-pointer">
-            <Link href="/" className="w-fit flex flex-row">
-              <h2 className="ml-2 font-bold text-lg md:text-xl lg:text-2xl text-primary  rounded-md">
-                Water Quality Reporter
-              </h2>
-              <Image
-                src="/water-droplet-logo.png"
-                alt="Logo"
-                width={32}
-                height={32}
-                className="object-cover rounded-md"
-              />
-            </Link>
-          </div>
-          <div className="w-fit flex flex-row justify-between gap-4">
-            {pages.map((page) => (
-              <Link
-                href={page.path || page.title}
-                className="text-md cursor-pointer hover:font-bold active:font-bold flex-row gap-1 items-center hover:border-b-2 hover:border-primary-foreground hover:box-border p-1 justify-center align-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:text-primary-foreground text-primary-foreground hidden md:flex"
-                key={page.path || "#"}
-              >
-                {page.icon}
-                {page.title}
+        <nav className="w-full flex  justify-start rounded-md shadow-md items-start px-4 bg-background/60 group flex-row">
+          <div className="w-full flex flex-row justify-between items-center">
+            <div className="flex flex-row items-center">
+              {" "}
+              <Link href="/">
+                <div className="flex items-center flex-row justify-start  bg-background/40 rounded w-full max-w-full group transition-colors ease-in-out duration-500">
+                  <Image
+                    src="/water-droplet-logo.svg"
+                    alt="Logo"
+                    width={512}
+                    height={512}
+                    layout="fit"
+                    className={cn({
+                      "flex justify-between h-8 w-8 md:w-12 md:h-12 items-center   group-hover:opacity-80":
+                        true,
+                    })}
+                  />
+                  <h2 className="text-small sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-primary group-hover:text-primary/80 pr-4">
+                    Water Quality Checker
+                  </h2>
+                  <div className="flex flex-row">
+                    <NavMenu pages={TopNavPages} subPages={subPages} />
+                  </div>
+                </div>
               </Link>
-            ))}
-            <div className="w-full">
+            </div>
+            <div className="flex flex-row items-center">
+              {" "}
               <ModeToggle />
             </div>
           </div>
         </nav>
       </MaxWidthWrapper>
-    </div>
+    </header>
   );
 };
 

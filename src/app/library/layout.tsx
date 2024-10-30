@@ -10,7 +10,7 @@ const WaterLayout: React.FC<WaterLayoutProps> = ({ children }) => {
     <div className="flex flex-col w-full h-full bg-background">
       <div>
         <MaxWidthWrapper>
-          <div className="grid grid-cols-1 md:grid-cols-4 h-full min-h-[100vh]  w-full ">
+          <div className="grid grid-cols-1 md:grid-cols-4 h-full min-h-[100vh]  w-full">
             {children}
           </div>
         </MaxWidthWrapper>

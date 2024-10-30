@@ -23,6 +23,28 @@ const TopNavPages = [
     title: "Home",
     href: "/",
     icon: <HomeIcon />,
+    subPages: [
+      {
+        title: "Service 1",
+        href: "/home/service1",
+        icon: <HomeIcon />,
+      },
+      {
+        title: "Service 2",
+        href: "/home/service2",
+        icon: <Info />,
+      },
+      {
+        title: "Service 3",
+        href: "/home/service3",
+        icon: <Map size={24} />,
+      },
+      {
+        title: "Service 4",
+        href: "/home/service4",
+        icon: <ListCheckIcon size={24} />,
+      },
+    ],
   },
   {
     title: "About",
@@ -49,7 +71,15 @@ const TopNavPages = [
 ];
 
 const subPages: SubPage[] = [
-  { title: "Service 1", href: "/service1", icon: <HomeIcon /> },
+  {
+    title: "Service 1",
+    href: "/service1",
+    icon: <HomeIcon />,
+    description: `Eiusmod sunt excepteur consequat deserunt ex eu non reprehenderit in laborum laborum. Pariatur minim et eiusmod occaecat ullamco nostrud. Amet amet consectetur anim anim eu sint. Id ex ex commodo excepteur cillum velit deserunt id sint eiusmod exerciation ad. Ad ut reprehenderit incididunt irure ipsum minim. Cupidatat pariatur esse est fugiat eu velit in. Ex est consequat ad ut dolore eiusmod.
+
+Aliqua nisi non exercitation amet id cillum. Adipisicing aute id magna sint anim mollit exercitation deserunt amet dolore. Minim id enim amet ea cillum laboris quis officia deserunt. Ea commodo et in sit velit proident qui nostrud. Qui magna velit fugiat pariatur Lorem amet ut exercitation consectetur sunt non. Elit duis occaecat duis deserunt amet id commodo EthernetPort.`,
+  },
+
   { title: "Service 2", href: "/service2", icon: <Info /> },
   { title: "Service 3", href: "/service3", icon: <Map size={24} /> },
   { title: "Service 4", href: "/service4", icon: <ListCheckIcon size={24} /> },

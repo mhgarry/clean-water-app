@@ -15,7 +15,7 @@ const SideNav: React.FC<SideNavProps> = ({ categories = [] }) => {
       <div className="bg-gradient-to-tr from-accent via-card to-background text-card-foreground  flex-col p-4 space-y-4 min-h-screen border  shadow h-screen sticky rounded-md hidden md:flex">
         {categories.map((category: NavPage) => (
           <div key={category.title}>
-            <h2 className="text-md font-bold text-foreground mb-2 ml-4">
+            <h2 className="lg:text-xs xl:text-base font-bold text-foreground mb-2 ml-4">
               {category.title}
             </h2>
             <ul className="flex flex-col space-y-2">
@@ -30,7 +30,7 @@ const SideNav: React.FC<SideNavProps> = ({ categories = [] }) => {
                     hover:font-bold
                     hover:text-background hover:bg-foreground px-4 py-2 rounded-md flex flex-row gap-2
                     active:bg-foreground active:text-background active:font-bold
-                    pointer-cursor focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+                    pointer-cursor focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary "
                   >
                     <div className=""> {page.icon}</div>
 

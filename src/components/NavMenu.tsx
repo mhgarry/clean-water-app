@@ -22,7 +22,7 @@ type MenuProps = {
 
 const NavMenu: React.FC<MenuProps> = ({ pages }) => {
   return (
-    <section className="w-full h-full hidden md:flex px-8">
+    <section className="w-full h-full hidden md:flex px-8 ">
       <MaxWidthWrapper>
         <NavigationMenu>
           <NavigationMenuList>
@@ -46,7 +46,7 @@ const SingleLink: React.FC<{ page: NavPage }> = ({ page }) => (
     <NavigationMenuLink
       className={cn(
         navigationMenuTriggerStyle(),
-        "px-3 py-2 flex items-center gap-2"
+        "px-3 py-2 flex items-center gap-2 hover:bg-accent hover:text-accent-foreground"
       )}
     >
       {page.icon}

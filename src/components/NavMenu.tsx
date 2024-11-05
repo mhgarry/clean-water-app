@@ -12,13 +12,9 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { NavPage, SubPage } from "@/schemas/navSchemas";
-import MaxWidthWrapper from "./Max-Width-Wrapper";
+import { NavPage } from "@/schemas/navSchemas";
+import MaxWidthWrapper from "./MaxWidthWrapper";
 import { cn } from "@/lib/utils";
-
-type SubMenuProps = {
-  subPages: SubPage[];
-};
 
 type MenuProps = {
   pages: NavPage[];
@@ -26,17 +22,21 @@ type MenuProps = {
 
 const NavMenu: React.FC<MenuProps> = ({ pages }) => {
   return (
-    <section className="w-full justify-center items-center hidden md:flex lg:px-12 md:scroll-px-8">
+    <section className="w-full hidden md:flex p-0 m-0">
       <MaxWidthWrapper>
         <NavigationMenu>
           <NavigationMenuList>
             {pages.map((page) => (
               <NavigationMenuItem asChild key={page.id}>
-                {page.subPages ? (
-                  <SubMenuTrigger page={page} />
-                ) : (
-                  <SingleLink page={page} />
-                )}
+                <div className="p-2">
+                  {" "}
+                  {/* Adjust padding here */}
+                  {page.subPages ? (
+                    <SubMenuTrigger page={page} />
+                  ) : (
+                    <SingleLink page={page} />
+                  )}
+                </div>
               </NavigationMenuItem>
             ))}
           </NavigationMenuList>
@@ -47,12 +47,14 @@ const NavMenu: React.FC<MenuProps> = ({ pages }) => {
 };
 
 const SingleLink: React.FC<{ page: NavPage }> = ({ page }) => (
-  <Link href={page.href} passHref legacyBehavior>
-    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-      {page.icon}
-      <span>{page.title}</span>
-    </NavigationMenuLink>
-  </Link>
+  <>
+    <Link href={page.href} passHref legacyBehavior>
+      <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+        {page.icon}
+        <span>{page.title}</span>
+      </NavigationMenuLink>
+    </Link>
+  </>
 );
 
 const SubMenuTrigger: React.FC<{ page: NavPage }> = ({ page }) => (
@@ -67,7 +69,7 @@ const SubMenuTrigger: React.FC<{ page: NavPage }> = ({ page }) => (
     </Link>
 
     <NavigationMenuContent>
-      <ul className="grid md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr] p-6">
+      <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
         <WaterCheckerLogo />
         {page.subPages?.map((subPage) => (
           <Link key={subPage.id} href={subPage.href} passHref legacyBehavior>
@@ -112,7 +114,7 @@ const ListItem = React.forwardRef<
       <a
         ref={ref}
         className={cn(
-          "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+          "block select-none space-y-1 rounded-md p-2 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
           className
         )}
         {...props}

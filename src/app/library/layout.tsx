@@ -1,5 +1,5 @@
 import React from "react";
-import MaxWidthWrapper from "@/components/Max-Width-Wrapper"; // Adjust the import path as necessary
+import MaxWidthWrapper from "@/components/MaxWidthWrapper"; // Adjust the import path as necessary
 
 interface WaterLayoutProps {
   children: React.ReactNode;

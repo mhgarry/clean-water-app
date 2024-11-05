@@ -8,7 +8,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import MaxWidthWrapper from "./Max-Width-Wrapper";
+import MaxWidthWrapper from "./MaxWidthWrapper";
 import React from "react";
 import Link from "next/link";
 import type { SideNav, NavPage } from "@/schemas/navSchemas"; // Import the inferred type

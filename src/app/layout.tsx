@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/styles/globals.css";
-import TopNav from "@/components/Top-Nav";
-import SideNav from "@/components/Side-Nav";
+import TopNav from "@/components/TopNav";
+import SideNav from "@/components/SideNav";
 import {
   House,
   InfoIcon,
@@ -15,7 +15,7 @@ import {
   Map,
   Newspaper,
 } from "lucide-react";
-import MaxWidthWrapper from "@/components/Max-Width-Wrapper";
+import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { ThemeProvider } from "@/components/theme-provider";
 
 const interSans = Inter({
@@ -105,7 +105,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${interSans.variable} antialiased flex flex-col min-h-screen bg-background text-foreground`}
+        className={`${interSans.variable} antialiased flex flex-col min-h-screen bg-background text-foreground mb-12`}
       >
         <ThemeProvider
           attribute="class"
@@ -113,17 +113,14 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <section className="w-full justify-center flex-center flex flex-col">
+          <section className="w-full justify-center flex-center flex flex-col p-4">
             {" "}
             <TopNav pages={topNavPages} />
           </section>
 
-          <div className="flex flex-row w-full justify-center align-center items-center px-12   lg:px-4 md:px-4 min-h-[100vh] py-12 md:py-4 lg:py-12">
+          <div className="flex flex-row w-full justify-center align-center items-center     min-h-[100vh] p-4 ">
             <MaxWidthWrapper>
               <div className="grid grid-cols-1 md:grid-cols-5  min-h-[100vh]  w-full md:gap-2 lg:gap-8">
-                {/* SideNav - Hidden on smaller screens */}
-                {/* <SideNav categories={sideNavPages} />
-x Sidebar - Hidden on larger screens */}
                 <div className="w-full h-full">
                   <SideNav categories={sideNavPages} />
                 </div>

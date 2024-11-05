@@ -1,21 +1,16 @@
 "use client";
-import React from "react";
-import MaxWidthWrapper from "./Max-Width-Wrapper";
+import React, { useState, useEffect } from "react";
+import MaxWidthWrapper from "./MaxWidthWrapper";
 import Image from "next/image";
 import { NavPage, SubPage } from "@/schemas/navSchemas";
 import Link from "next/link";
-import ModeToggle from "./Mode-Toggle";
-import { HomeIcon, Info, Map, ListCheck, Server } from "lucide-react";
+import ModeToggle from "./ModeToggle";
+import { HomeIcon, Info, Map, ListCheck } from "lucide-react";
 import { cn } from "@/lib/utils";
-import NavMenu from "./Nav-Menu";
+import NavMenu from "./NavMenu";
 interface TopNavProps {
   pages: NavPage[];
   subPages?: SubPage[];
-}
-
-interface SubNavProps {
-  pages: NavPage[];
-  subPages: SubPage[];
 }
 
 const TopNavPages = [
@@ -67,8 +62,24 @@ const TopNavPages = [
 ];
 
 const TopNav: React.FC<TopNavProps> = () => {
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 1024) {
+        setShowMobileMenu(false);
+      } else {
+        setShowMobileMenu(true);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [showMobileMenu]);
+
   return (
-    <header className="h-16 max-h-16 px-4 bg-background/60 flex flex-col items-center justify-center sticky top-0 border-b border-border/40 w-full border py-10  ">
+    <header className="h-16 max-h-16  bg-background/60 flex flex-col items-center justify-center sticky top-0  w-full  py-4 md:py-8  ">
       <MaxWidthWrapper>
         <nav className="w-full flex  justify-start rounded-md shadow-md items-start px-4 bg-background/60 group flex-row py-2">
           <div className="w-full flex flex-row justify-between items-center">
@@ -88,7 +99,7 @@ const TopNav: React.FC<TopNavProps> = () => {
                           true,
                       })}
                     />
-                    <h2 className="text-small sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-primary pr-4">
+                    <h2 className="text-small sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-primary">
                       Water Quality Checker
                     </h2>
                   </div>

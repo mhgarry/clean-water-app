@@ -1,4 +1,4 @@
-import MaxWidthWrapper from "@/components/Max-Width-Wrapper";
+import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 
 const LatestWaterAdvisoriesPage = () => {
   return (

@@ -105,7 +105,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${interSans.variable} antialiased flex flex-col min-h-screen bg-background text-foreground mb-12`}
+        className={`${interSans.variable} antialiased flex flex-col min-h-screen bg-background text-foreground `}
       >
         <ThemeProvider
           attribute="class"
@@ -118,9 +118,9 @@ export default function RootLayout({
             <TopNav pages={topNavPages} />
           </section>
 
-          <div className="flex flex-row w-full justify-center align-center items-center     min-h-[100vh] p-4 ">
+          <div className="flex flex-row w-full justify-center align-center items-center     min-h-[100vh] p-4">
             <MaxWidthWrapper>
-              <div className="grid grid-cols-1 md:grid-cols-5  min-h-[100vh]  w-full md:gap-2 lg:gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-5  min-h-[100vh]  w-full md:gap-2 lg:gap-8 ">
                 <div className="w-full h-full">
                   <SideNav categories={sideNavPages} />
                 </div>

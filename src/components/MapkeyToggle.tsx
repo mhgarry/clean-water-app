@@ -2,7 +2,8 @@
 
 import React, { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import { useOutsideClick } from "@/hooks/use-click-outside";
+import { useOnClickOutside } from "@/hooks/use-click-outside";
+import { useRef } from "react";
 import { ToggleGroupItem } from "./ui/toggle-group";
 import { ToggleGroup } from "./ui/toggle-group";
 import { toggleVariants } from "./ui/toggle";
@@ -11,10 +12,9 @@ const MapkeyToggle = () => {
   // Initialize activeStatus to "Safe" to highlight the Safe button by default
   const [activeStatus, setActiveStatus] = useState<string | null>("Safe");
 
-  // Handle outside click to deselect
-  useOutsideClick(() => {
-    setActiveStatus(null);
-  });
+  const mapToggleRef = useRef<HTMLDivElement | null>(null);
+
+  useOnClickOutside(mapToggleRef, () => setActiveStatus(null));
 
   // Handle Esc key press to deselect
   useEffect(() => {
@@ -36,10 +36,8 @@ const MapkeyToggle = () => {
 
   return (
     <div>
-      {/* Button Group Container */}
-      {/* <div className=" grid grid-cols-3 p-2 w-fit rounded-lg my-4 shadow-xl border-border border-solid"> */}
       <div className="flex flex-col bg-primary p-2 max-w-[200px] rounded-md">
-        <ToggleGroup type="single">
+        <ToggleGroup type="single" ref={mapToggleRef}>
           <ToggleGroupItem
             onClick={() => setWaterStatus("Safe")}
             value="safe"

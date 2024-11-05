@@ -1,5 +1,6 @@
 "use client";
 
+import { useOnClickOutside } from "@/hooks/use-click-outside";
 import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -15,14 +16,34 @@ import {
 import { NavPage } from "@/schemas/navSchemas";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import { cn } from "@/lib/utils";
+import { useRef, useEffect, useState } from "react";
 
 type MenuProps = {
   pages: NavPage[];
 };
 
 const NavMenu: React.FC<MenuProps> = ({ pages }) => {
+  const [activeIndex, setActiveIndex] = useState<null | number>(null);
+
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setActiveIndex(null);
+      }
+    };
+    window.addEventListener("keydown", handler);
+
+    return () => window.removeEventListener("keydown", handler);
+  }, []);
+
+  const isAnyOpen = activeIndex !== null;
+
+  const navRef = useRef<HTMLDivElement | null>(null);
+
+  useOnClickOutside(navRef, () => setActiveIndex(null));
+
   return (
-    <section className="w-full h-full hidden md:flex px-8 ">
+    <section className="w-full h-full hidden md:flex px-8 " ref={navRef}>
       <MaxWidthWrapper>
         <NavigationMenu>
           <NavigationMenuList>
